@@ -1,0 +1,15 @@
+[project]
+name = "langgraph-openai-sample"
+version = "0.1.0"
+description = "LangGraph와 OpenAI를 이용한 시작"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "langgraph>=0.2.0",
+    "langchain-openai>=0.2.0",
+    "python-dotenv>=1.0.1", 
+]
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
