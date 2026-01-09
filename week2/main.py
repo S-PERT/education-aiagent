@@ -1,56 +1,6 @@
-import dotenv
-
-dotenv.load_dotenv() ## 환경 파일 로딩
-
-from crewai import Crew, Agent, Task
-from crewai.project import CrewBase, agent, task, crew
-from tools import count_letters
-
-@CrewBase
-class TranslatorCrew:
-
-    @agent
-    def translator_agent(self):
-        return Agent(
-            config=self.agents_config["translator_agent"], # type: ignore
-        )
-
-    @agent
-    def counter_agent(self):
-        return Agent(
-            config=self.agents_config["counter_agent"], # type: ignore
-            tools=[count_letters],
-        )
-
-    @task
-    def translate_task(self):
-        return Task(
-            config=self.tasks_config["translate_task"],
-        )
-
-    @task
-    def retranslate_task(self):
-        return Task(
-            config=self.tasks_config["retranslate_task"],
-        )
-
-    @task
-    def count_task(self):
-        return Task(
-            config=self.tasks_config["count_task"],
-        )
-    
-    @crew
-    def assemble_crew(self):
-        return Crew(
-            agents=self.agents,
-            tasks=self.tasks,
-            verbose=True,
-        )
+def main():
+    print("Hello from week2!")
 
 
-TranslatorCrew().assemble_crew().kickoff(
-    inputs={
-        "sentence": "나는 희찬이야. 술과 고기를 좋아해.",
-    }
-)
+if __name__ == "__main__":
+    main()
